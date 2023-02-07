@@ -12,7 +12,7 @@ const Banner = (props) => {
   const handleSearch = (ev) => {
     ev.preventDefault();
 
-    const title = this.props.searchText;
+    const title = ev.target.value;
 
     if (title === null || title === undefined)
       return;
