@@ -2,14 +2,24 @@ import ItemPreview from "./ItemPreview";
 import ListPagination from "./ListPagination";
 import React from "react";
 
+const EmptyListMessage = (props) => {
+  const style = {
+    backgroundColor: 'lightpurple'
+  };
+
+  if (!props.searchText)
+    return <div style={style} id="empty" className="py-4 no-items">No items here... yet</div>
+
+  return <div style={style} id="empty" className="py-4 no-items">No items found for "<b>{props.searchText}</b>"</div>;
+};
+
 const ItemList = (props) => {
   if (!props.items) {
     return <div className="py-4">Loading...</div>;
   }
 
   if (props.items.length === 0) {
-      const message = `No items found for "${props.title}"`;
-      return <div id="empty" className="py-4 no-items">{!props.title ? "No items here... yet" : message}</div>;
+    return <EmptyListMessage searchText={props.searchText} />
   }
 
   return (
