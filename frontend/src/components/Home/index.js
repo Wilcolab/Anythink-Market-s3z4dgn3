@@ -48,11 +48,11 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
-        <Banner searchText={this.props.searchText} onSearchText={this.props.onSearchText} />
+        <Banner searchText={this.props.title} onSearchText={this.props.onSearchText} />
 
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
-          <MainView />
+          <MainView searchText={this.props.title} />
         </div>
       </div>
     );

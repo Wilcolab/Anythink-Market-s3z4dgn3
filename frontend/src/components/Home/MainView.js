@@ -70,6 +70,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const MainView = (props) => {
+  console.log(props);
+
   return (
     <div>
       <div className="feed-toggle">
@@ -89,6 +91,7 @@ const MainView = (props) => {
       <ItemList
         pager={props.pager}
         items={props.items}
+        searchText={props.title}
         loading={props.loading}
         itemsCount={props.itemsCount}
         currentPage={props.currentPage}
