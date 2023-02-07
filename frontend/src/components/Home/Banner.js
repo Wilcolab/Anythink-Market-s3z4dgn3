@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../imgs/logo.png";
+import agent from "../../agent";
 
 const searchBox = {
   padding: '0.5rem',
@@ -7,7 +8,27 @@ const searchBox = {
   borderRadius: '0.5rem'
 };
 
-const Banner = () => {
+const Banner = (props) => {
+  const handleSearch = (ev) => {
+    ev.preventDefault();
+
+    const title = this.props.searchText;
+
+    if (title === null || title === undefined)
+      return;
+
+    if (title.length < 3)
+      return;
+
+    props.onSearchText(
+      title,
+      (page) => agent.Items.byTitle(title, page),
+      agent.Items.byTitle(title)
+    );
+  }
+
+
+
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">
@@ -16,7 +37,7 @@ const Banner = () => {
           <span>A place to </span>
           <span id="get-part">get</span>
           <span>
-            <input style={searchBox} type="text" id="search-box" placeholder="What is that you truly desire?"/>
+            <input style={searchBox} onChange={handleSearch} type="text" id="search-box" placeholder="What is that you truly desire?"/>
           </span>
           <span> the cool stuff.</span>
         </div>
