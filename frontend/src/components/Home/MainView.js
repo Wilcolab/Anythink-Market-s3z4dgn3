@@ -89,6 +89,7 @@ const MainView = (props) => {
       <ItemList
         pager={props.pager}
         items={props.items}
+        searchText={props.title}
         loading={props.loading}
         itemsCount={props.itemsCount}
         currentPage={props.currentPage}
