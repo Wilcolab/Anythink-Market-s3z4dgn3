@@ -10,7 +10,7 @@ const EmptyListMessage = (props) => {
   if (!props.searchText)
     return <div style={style} id="empty" className="py-4 no-items">No items here... yet</div>
 
-  return <div style={style} id="empty" className="py-4 no-items">No items found for "<b>{props.searchText}</b>"</div>;
+  return <div style={style} id="empty text-center" className="py-4 px-2 no-items border">No items found for "<b>{props.searchText}</b>."</div>;
 };
 
 const ItemList = (props) => {
